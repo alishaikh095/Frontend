@@ -1,0 +1,48 @@
+.meal-card {
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1rem;
+  width: 300px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.meal-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.meal-card h2 {
+  font-size: 1.2rem;
+  margin: 0.8rem 0 0.4rem;
+}
+
+.meal-card p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0 0 1rem;
+}
+
+.price {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #f15a24;
+  margin-bottom: 1rem;
+}
+
+.meal-card button {
+  background: #fff;
+  border: 2px solid #000;
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.meal-card button:hover {
+  background: #000;
+  color: #fff;
+}
