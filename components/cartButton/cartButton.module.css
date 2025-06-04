@@ -1,0 +1,39 @@
+.cart-button {
+  position: relative;
+  background-color: #FFD600;
+  /* Yellow background */
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-button:hover {
+background: linear-gradient(90deg, #ff8a05, #f9b331);
+  /* Darker yellow on hover */
+}
+
+.cart-button .icon {
+  font-size: 18px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #FF5722;
+  /* Orange badge */
+  color: white;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid white;
+}

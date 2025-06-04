@@ -25,7 +25,7 @@ function writeMeals(meals) {
 app.post("/api/meals", (req, res) => {
   const newMeal = req.body;
   const meals = readMeals();
-  meals.push({ ...newMeal, id: Math.random() });
+  meals.push({ ...newMeal, id: Math.floor(Math.random() * Date.now()).toString(16)});
   writeMeals(meals);
   res.status(200).json(newMeal);
 });

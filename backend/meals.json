@@ -14,20 +14,6 @@
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2uAtrgCnf3lpvbFBVuX7sCVkQuUVblpIYiQ&s"
   },
   {
-      "id": "3",
-    "name": "Wrap",
-    "price": "720",
-    "description": "this is with chipotle",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2uAtrgCnf3lpvbFBVuX7sCVkQuUVblpIYiQ&s"
-  },
-  {
-      "id": "4",
-    "name": "Wrap",
-    "price": "720",
-    "description": "this is with chipotle",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2uAtrgCnf3lpvbFBVuX7sCVkQuUVblpIYiQ&s"
-  },
-  {
       "id": "5",
     "name": "Zinger",
     "price": "500",

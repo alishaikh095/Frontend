@@ -3,8 +3,12 @@ import logoImg from "@/assets/logo.png";
 
 import classes from "./main-header.module.css";
 import Image from "next/image";
-import MainHeaderBackground from "./main-header-bg";
+import MainHeaderBackground from "./main-header-bg";  
 import NavLink from "../navLink/navLink";
+import CartButton from "../cartButton/cartButton";
+import AppProvider from "../provider/provider";
+
+
 export default function MainHeader() {
   return (
     <>
@@ -23,8 +27,14 @@ export default function MainHeader() {
             <li>
               <NavLink href="/community">Foodies Community</NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink href="/add-meals">Add Meals</NavLink>
+            </li> */}
+            <li>
+                      <AppProvider>
+                              <CartButton />
+                      </AppProvider>
+       
             </li>
           </ul>
         </nav>
