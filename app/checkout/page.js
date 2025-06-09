@@ -1,8 +1,6 @@
+'use client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-
-'use client';
-
 
 const CheckOut = () => {
     const router = useRouter();
