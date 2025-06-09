@@ -27,8 +27,8 @@ const Meals = () => {
   return (
     <section className={styles["meal-listing"]}>
       {meals.map((meal) => (
-        <AppProvider>
-                  <MealItem key={meal.id} meal={meal} alt={meal.name} />
+        <AppProvider key={meal.id}>
+                  <MealItem meal={meal} alt={meal.name} />
         </AppProvider>
 
       ))}
