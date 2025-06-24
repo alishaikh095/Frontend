@@ -9,12 +9,21 @@ import AppProvider from "@/components/provider/provider";
 
  async function MealsData() {
        const mealsData = await getMeals();
-   return <>{mealsData.map((meal) => (
+   return <>
+  {!mealsData || mealsData.length === 0 ? (
+    <div style={{ textAlign: "center", margin: "2rem 0" }}>
+      <p>No data found.</p>
+    </div>
+  ) : <>
+
+   {mealsData?.map((meal) => (
         <AppProvider key={meal.id}>
                   <MealItem meal={meal} alt={meal.name} />
         </AppProvider>
 
-      ))}</>
+      ))}</>}
+   
+         </>
 }
 
 const Meals = () => {
