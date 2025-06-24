@@ -8,7 +8,6 @@ const CartContext = React.createContext({
 
 function CartItem({ item, onRemove }) {
     return (
-      
             <div className={styles.itemContainer}>
                 <img src={item.image} alt={item.name} className={styles.image} />
                 <div className={styles.details}>
@@ -22,7 +21,6 @@ function CartItem({ item, onRemove }) {
                     </div>
                 </div>
             </div>
-      
     );
 }
 
