@@ -1,43 +1,55 @@
-
 import React, { Suspense } from "react";
 
 import styles from "./page.module.css";
 
 import MealItem from "../../components/mealItem/mealItem";
-import {getMeals} from '../services/httpService';
+import { getMeals } from "../services/httpService";
 import AppProvider from "@/components/provider/provider";
 
- async function MealsData() {
-       const mealsData = await getMeals();
-   return <>
-  {!mealsData || mealsData.length === 0 ? (
-    <div style={{ textAlign: "center", margin: "2rem 0" }}>
-      <p>No data found.</p>
-    </div>
-  ) : <>
-
-   {mealsData?.map((meal) => (
+async function MealsData() {
+  const mealsData = await getMeals();
+  console.log(mealsData)
+if (
+    !mealsData ||
+    (typeof mealsData === "object" && !Array.isArray(mealsData) && Object.keys(mealsData).length === 0) ||
+    (Array.isArray(mealsData) && mealsData.length === 0)
+  ) {
+    return <p>No data found</p>;
+  }
+  return (
+    <>
+      {mealsData?.map((meal) => (
         <AppProvider key={meal.id}>
-                  <MealItem meal={meal} alt={meal.name} />
+          <MealItem meal={meal} alt={meal.name} />
         </AppProvider>
-
-      ))}</>}
-   
-         </>
+      ))}
+    </>
+  );
 }
 
 const Meals = () => {
-
-
   return (
-    <section className={styles["meal-listing"]}>
-      <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <>
+        <section className={styles["meal-listing"]}>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100vh",
+            }}
+          >
             <p>Loading Menu</p>
-        </div>}>
-      <MealsData />
+          </div>
+        }
+      >
+        <MealsData />
       </Suspense>
-
     </section>
+    </>
+
   );
 };
 

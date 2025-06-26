@@ -54,5 +54,7 @@ app.listen(port, () => {
 });
 app.get("/api/getmeals", (req, res) => {
   const meals = readMeals();
+  console.log(meals);
+  res.setHeader('Cache-Control', 'no-store');
   res.status(200).json(meals);
 });
