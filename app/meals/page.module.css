@@ -4,3 +4,12 @@
   gap: 1.5rem;
   justify-content: center;
 }
+
+
+.no-data {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 6rem;
+  width: 100%;
+}

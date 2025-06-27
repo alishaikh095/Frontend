@@ -16,7 +16,7 @@ export default function MainHeader() {
       <header className={classes.header}>
         <Link className={classes.logo} href="/">
           <Image src={logoImg} alt="A Plate with food on it" priority />
-          NextLevel Foods
+          Al Ghani Foods
         </Link>
 
         <nav className={classes.nav}>

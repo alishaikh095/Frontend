@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 import styles from "./page.module.css";
 
 import MealItem from "../../components/mealItem/mealItem";
-import { getMeals } from "../services/httpService";
+import { getMeals } from "../../libs/httpService";
 import AppProvider from "@/components/provider/provider";
 
 async function MealsData() {
@@ -14,7 +14,7 @@ if (
     (typeof mealsData === "object" && !Array.isArray(mealsData) && Object.keys(mealsData).length === 0) ||
     (Array.isArray(mealsData) && mealsData.length === 0)
   ) {
-    return <p>No data found</p>;
+    return <h4 className={styles["no-data"]}>Menu not found</h4>;
   }
   return (
     <>
