@@ -6,7 +6,6 @@ import classes from './meal-item.module.css'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/createSlice'; // Adjust the import path as necessary
 import Image from "next/image";
-import { BASE_URL } from "@/libs/httpService";
 
 const MealItem = ({ meal, alt }) => {
    const dispatch = useDispatch();

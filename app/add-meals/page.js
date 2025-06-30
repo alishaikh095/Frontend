@@ -1,40 +1,31 @@
+"use client";
 import React from "react";
 import styles from "./page.module.css";
 import ImagePicker from "@/components/imagePicker/image-picker";
-import { addMeals } from "../../libs/httpService";
-import { redirect } from "next/navigation";
 import MealAddButton from "@/components/mealAddButton/mealAddButton";
+import { handleSubmit } from "@/libs/formAction";
+import { useFormState } from "react-dom";
 
 const AddMealsPage = () => {
-  async function handleSubmit(formData) {
-    "use server";
-    try {
-      const response = await addMeals(formData);
-      if (response) {
-        redirect("/meals");
-      } else {
-        // alert('Failed to add meal.');
-      }
-    } catch (error) {
-      console.error("Error adding meal:", error);
-    }
-  }
 
+
+  const [state, formAction] = useFormState(handleSubmit, {message: null});
+  console.log(state.message);
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Add Meals</h1>
-      <form action={handleSubmit} className={styles.form}>
+      <form action={formAction} className={styles.form}>
         <div className={styles.formGroup}>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="name" name="name"  />
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="price">Price</label>
-          <input type="number" id="price" name="price" required />
+          <input type="number" id="price" name="price"  />
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="description">Description</label>
-          <textarea id="description" name="description" required />
+          <textarea id="description" name="description"  />
         </div>
         {/* <div className={styles.formGroup}>
           <label htmlFor="image">Image URL</label>
@@ -49,8 +40,13 @@ const AddMealsPage = () => {
 
         </div> */}
         <div className={styles.formGroup}>
-          <ImagePicker name="image" />
+          <ImagePicker name="image" label="Pick an Image" />
         </div>
+        {state.message && (
+          <p className={styles.errorForm}>
+            {state.message}
+          </p>
+        )}
           <MealAddButton />
       </form>
     </div>
