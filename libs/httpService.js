@@ -1,10 +1,8 @@
-
-
-const BASE_URL = "http://localhost:3012";
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const getMeals = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/api/getmeals`, {
+    const response = await fetch(`${baseUrl}/api/meals`, {
       cache: "no-store",
     });
     return await response.json();
@@ -25,7 +23,7 @@ export const addMeals = async (formData) => {
        
     meal.image = await UploadImage(meal.image);
 
-        const response = await fetch(`${BASE_URL}/api/meals`, {
+        const response = await fetch(`${baseUrl}/api/meals`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
