@@ -1,4 +1,4 @@
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseUrl = 'http://localhost:3000/';
 
 export const getMeals = async () => {
   try {
