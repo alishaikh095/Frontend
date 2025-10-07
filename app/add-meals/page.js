@@ -10,7 +10,6 @@ const AddMealsPage = () => {
 
 
   const [state, formAction] = useFormState(handleSubmit, {message: null});
-  console.log(state.message);
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Add Meals</h1>

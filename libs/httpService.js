@@ -1,3 +1,4 @@
+
 const baseUrl = 'http://localhost:3000/';
 
 export const getMeals = async () => {
@@ -13,6 +14,7 @@ export const getMeals = async () => {
 };
 
 export const addMeals = async (formData) => {
+  debugger
   try {
     const meal = {
       name: formData.get("name"),
@@ -21,7 +23,12 @@ export const addMeals = async (formData) => {
       image: formData.get("image"),
     };
        
-    meal.image = await UploadImage(meal.image);
+    const imgRes = await uploadImageFile(meal.image);
+    if(imgRes) {
+      meal.image = imgRes;
+    } else {
+      throw new Error("Image upload failed");
+    }
 
         const response = await fetch(`${baseUrl}/api/meals`, {
       method: "POST",
@@ -39,3 +46,22 @@ export const addMeals = async (formData) => {
     return null;
   }
 };
+
+const uploadImageFile = async (formImage) => {
+  try {
+    const formData = new FormData();
+    formData.append("image", formImage);
+
+    const response = await fetch(`${baseUrl}/api/upload`, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) throw new Error("Image upload failed");
+    const data = await response.json();
+    return data.url;
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    return null;
+  }
+}

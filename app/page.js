@@ -8,16 +8,16 @@ export default function Home() {
     <>
       <header className={classes.header}>
         <div className={classes.slideshow}>
-        <ImageSlideshow />
+          <ImageSlideshow />
         </div>
-        <div>
+        <div className={classes.content}>
           <div className={classes.hero}>
-            <h1>Al Ghani Foods for NextLevel Foodies</h1>
-            <p>Your Craving partner</p>
+            <h1 className={classes.title}>Al Ghani Foods for <span className={classes.highlight}>NextLevel Foodies</span></h1>
+            <p className={classes.subtitle}>Your Craving Partner</p>
           </div>
           <div className={classes.cta}>
-            <p>Order Here</p>
-            <Link href="/meals">Check Menu</Link>
+            <p className={classes.ctaText}>Order Here</p>
+            <Link href="/meals" className={classes.ctaButton}>Check Menu</Link>
           </div>
         </div>
       </header>
